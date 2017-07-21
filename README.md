@@ -1,2 +1,2 @@
 # agmap
-Google mapping tool by John Cashman new
+Google mapping tool by John Cashman new and newer
