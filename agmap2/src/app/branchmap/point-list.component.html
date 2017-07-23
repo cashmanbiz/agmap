@@ -1,0 +1,167 @@
+ <div style="position: relative; float : left ; width: 80%;">
+
+
+<agm-map [zoom]='zoom' [latitude]="lat" [longitude]="lng" >
+  <!--<agm-marker 
+    [latitude]="jobpoints[0].lat" 
+    [longitude]="jobpoints[0].lng"
+    [iconUrl]="jobpoints[0].iconUrl">
+    <agm-info-window>{{jobpoints[0].jobid}}<br>{{jobpoints[0].address}}</agm-info-window>
+  </agm-marker>
+
+  <agm-circle [latitude]="jobpoints[0].lat" [longitude]="jobpoints[0].lng"
+          [radius]="5000"
+          [fillColor]="'blue'"
+          [circleDraggable]="false"
+          [editable]="false">
+  </agm-circle>
+-->
+   <agm-marker 
+    [latitude]="jobpoints[1].lat" 
+    [longitude]="jobpoints[1].lng"
+    [iconUrl]="jobpoints[1].iconUrl">
+    <agm-info-window>{{jobpoints[1].jobid}}<br>{{jobpoints[1].address}}</agm-info-window>
+  </agm-marker>
+
+  <agm-circle [latitude]="jobpoints[1].lat" [longitude]="jobpoints[1].lng"
+          [radius]="5000"
+          [fillColor]="'blue'"
+          [circleDraggable]="false"
+          [editable]="false">
+  </agm-circle>
+
+<agm-marker 
+    [latitude]="myPoint.lat" 
+    [longitude]="myPoint.lng"
+    [iconUrl]="myPoint.iconUrl">
+    <agm-info-window>{{myPoint.jobid}}<br>{{myPoint.address}}</agm-info-window>
+  </agm-marker>
+
+  <agm-circle [latitude]="myPoint.lat" [longitude]="myPoint.lng"
+          [radius]="5000"
+          [fillColor]="'blue'"
+          [circleDraggable]="false"
+          [editable]="false">
+  </agm-circle>
+
+<agm-polygon 
+    [paths]="I10DublinHub" 
+    [fillColor]= "fillColorDublin"
+    [fillOpacity]="fillOpacity" 
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+<agm-polygon 
+    [paths]="I09Dundalk" 
+    [fillColor]= "fillColorDundalk" 
+    [fillOpacity]="fillOpacity" 
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+<agm-polygon 
+    [paths]="I04Waterford" 
+    [fillColor]= "fillColorWaterford" 
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+  <agm-polygon 
+    [paths]="I05Cork" 
+    [fillColor]= "fillColorCork" 
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+  <agm-polygon 
+    [paths]="I17KerryMobilePro" 
+    [fillColor]= "fillColorKerry" 
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+  <agm-polygon 
+    [paths]="I07Limerick" 
+    [fillColor]= "fillColorLimerick" 
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+  <agm-polygon 
+    [paths]="I06Galway" 
+    [fillColor]= "fillColorGalway"
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+  <agm-polygon 
+    [paths]="I14Kilkenny" 
+    [fillColor]= "fillColorKilkenny" 
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+  <agm-polygon 
+    [paths]="I03Athlone" 
+    [fillColor]= "fillColorAthlone" 
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+  <agm-polygon 
+    [paths]="I18SligoMobilePro" 
+    [fillColor]= "fillColorSligo" 
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+  <agm-polygon 
+    [paths]="I19Letterkenny" 
+    [fillColor]= "fillColorLetterkenny" 
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+  <agm-polygon 
+    [paths]="I21Kildare" 
+    [fillColor]= "fillColorKildare" 
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight"
+     >
+  </agm-polygon>
+
+</agm-map>
+</div>
+
+
+<div style="position: relative; float : right ; width: 20%; text-align:center">
+    
+
+<h3 *ngIf="isLoading"><i>Loading Points...</i></h3>
+<h3 *ngIf="!isLoading">Select a Point</h3>
+
+<nav>
+    <button (click)="getPoints()" class="btn btn-primary">Refresh</button>
+    <a *ngFor="let point of points | async" (click)="select(point)">-{{point.id}}- </a>
+
+
+</nav>
+
+<div *ngIf="selectedPoint">
+    <h3>Editing: {{selectedPoint.id}}</h3>
+    <point-detail [point]="selectedPoint"></point-detail>
+    
+</div>
+
+</div>

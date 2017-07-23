@@ -1,0 +1,64 @@
+<h2> Point Detail </h2>
+<!--
+<h3><i> Just a FormGroup</i></h3>
+
+<form [formGroup]="pointForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <div style="margin-bottom: 1em">
+        <button type="submit" 
+            [disabled]="pointForm.pristine" class="btn btn-success">Save</button>&nbsp;
+        <button type="reset" (click) = revert(); 
+            [disabled]="pointForm.pristine" class="btn btn-reset">Reset</button>
+    </div>
+
+
+    <div class="form-group">
+            <label class="center-block">ID:
+                <input class="formControl" formControlName="id">
+            </label>
+    </div>
+
+   <div class="form-group">
+            <label class="center-block">Latidude:
+                <input class="formControl" formControlName="lat">
+            </label>
+    </div>
+   <div class="form-group">
+            <label class="center-block">Longitude:
+                <input class="formControl" formControlName="lng">
+            </label>
+    </div>
+
+    <div class="form-group">
+            <label class="center-block">State:
+                <select class="formControl" formControlName="card"> 
+                <option *ngFor="let card of states" [value]="card">{{card}}</option>
+                </select>
+            </label>
+    </div>
+        <label class="center-block">
+      <input type="checkbox" formControlName="confirmed"> Job is confirmed.
+    </label>
+
+    <div class="form-group">
+        <label class="center-block">:Job Id:
+            <input class="form-control" formControlName="jobid">
+        </label>
+    </div>
+</form>
+-->
+<!-- <p>Form value: {{ pointForm.value | json }}</p>
+<p>Form status: {{ pointForm.status | json }}</p> 
+-->
+<p> ID: {{pointForm.get('id').value}}</p> 
+<p> Job Id: {{pointForm.get('jobid').value}}</p> 
+<p> Lat: {{pointForm.get('lat').value}}</p>
+<p> Lng: {{pointForm.get('lng').value}}</p>  
+<p> State: {{pointForm.get('card').value}}</p>
+<p> Address: {{pointForm.get('address').value}}</p> 
+<p> eircode: {{pointForm.get('eircode').value}}</p>
+<p> date-time: {{pointForm.get('datetime').value}}</p>  
+<p> Branch: {{pointForm.get('branch').value}}</p>
+<p> Branch ID: {{pointForm.get('branchId').value}}</p>
+<p> Icon Url: {{pointForm.get('iconUrl').value}}</p>
+<p> Confirmed?: {{pointForm.get('confirmed').value}}</p>

@@ -1,0 +1,138 @@
+<!--The whole content below can be removed with the new code.-->
+    
+<div style="position: relative; float : right ; width: 20%; text-align:center">
+  <h1>
+    Welcome to {{title}}
+  </h1>
+
+  
+<h4> JobID: {{agJob[0].jobid}}</h4>
+<h4> Date/Time: {{agJob[0].datetime}} </h4>
+<h4> Latidude: {{agJob[0].lat}} </h4>
+<h4> Longitude: {{agJob[0].lng}}</h4>
+<h4> Address: {{agJob[0].address}}  </h4>
+<h4> Eircode: {{agJob[0].eircode}}</h4>
+<h4> Branch: {{agJob[0].branch}} </h4>
+<h4> Branch ID: {{agJob[0].branchId}}</h4>
+<h4> Card: {{agJob[0].card}}</h4> 
+</div>
+
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+<div style="position: relative; float : left ; width: 80%;">
+
+<agm-map [zoom]='zoom' [latitude]="lat" [longitude]="lng" >
+  <agm-marker 
+    [latitude]='agJob[0].lat' 
+    [longitude]='agJob[0].lng'
+    [iconUrl]='agJob[0].iconUrl'>
+    <agm-info-window>{{agJob[0].jobid}}<br>{{agJob[0].address}}</agm-info-window>
+  </agm-marker>
+
+  <agm-circle [latitude]="agJob[0].lat" [longitude]="agJob[0].lng" 
+          [radius]="5000"
+          [fillColor]="'blue'"
+          [circleDraggable]="false"
+          [editable]="false">
+  </agm-circle>
+
+
+<agm-polygon 
+    [paths]="I10DublinHub" 
+    [fillColor]= "fillColorDublin"
+    [fillOpacity]="fillOpacity" 
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+<agm-polygon 
+    [paths]="I09Dundalk" 
+    [fillColor]= "fillColorDundalk" 
+    [fillOpacity]="fillOpacity" 
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+<agm-polygon 
+    [paths]="I04Waterford" 
+    [fillColor]= "fillColorWaterford" 
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+  <agm-polygon 
+    [paths]="I05Cork" 
+    [fillColor]= "fillColorCork" 
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+  <agm-polygon 
+    [paths]="I17KerryMobilePro" 
+    [fillColor]= "fillColorKerry" 
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+  <agm-polygon 
+    [paths]="I07Limerick" 
+    [fillColor]= "fillColorLimerick" 
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+  <agm-polygon 
+    [paths]="I06Galway" 
+    [fillColor]= "fillColorGalway"
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+  <agm-polygon 
+    [paths]="I14Kilkenny" 
+    [fillColor]= "fillColorKilkenny" 
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+  <agm-polygon 
+    [paths]="I03Athlone" 
+    [fillColor]= "fillColorAthlone" 
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+  <agm-polygon 
+    [paths]="I18SligoMobilePro" 
+    [fillColor]= "fillColorSligo" 
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+  <agm-polygon 
+    [paths]="I19Letterkenny" 
+    [fillColor]= "fillColorLetterkenny" 
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight" >
+  </agm-polygon>
+
+  <agm-polygon 
+    [paths]="I21Kildare" 
+    [fillColor]= "fillColorKildare" 
+    [fillOpacity]="fillOpacity"
+    [strokeColor]="strokeColor"
+    [strokeWeight]="strokeWeight"
+     >
+  </agm-polygon>
+
+</agm-map>
+</div>
